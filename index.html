@@ -1,14 +1,39 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>gramas-raiz-app</title>
-    <script type="module" crossorigin src="/assets/index-fpEqEZfX.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-rhn54Sw6.css">
+    <script type="module" crossorigin src="assets/index-fpEQzFX.js"></script>
+    <link rel="stylesheet" href="assets/index-rhn545w6.css" />
+    <style>
+      .copiar-btn {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        background-color: #2e7d32;
+        color: white;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 999;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+
+    <button class="copiar-btn" onclick="copiarURL()">Copiar site</button>
+
+    <script>
+      function copiarURL() {
+        navigator.clipboard.writeText(window.location.href)
+          .then(() => alert("Link copiado!"))
+          .catch(() => alert("Erro ao copiar o link."));
+      }
+    </script>
   </body>
 </html>
