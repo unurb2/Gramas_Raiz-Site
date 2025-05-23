@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>gramas-raiz-app</title>
-    <script type="module" crossorigin src="assets/index-fpEQzFX.js"></script>
-    <link rel="stylesheet" href="assets/index-rhn545w6.css" />
-    <style>
-      .copiar-btn {
-        position: fixed;
-        top: 12px;
-        right: 12px;
-        background-color: #2e7d32;
-        color: white;
-        padding: 8px 12px;
-        border: none;
-        border-radius: 6px;
-        font-weight: bold;
-        cursor: pointer;
-        z-index: 999;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gramas-raiz.app</title>
 
-    <button class="copiar-btn" onclick="copiarURL()">Copiar site</button>
+  <link rel="icon" type="image/svg+xml" href="vite.svg" />
+  <link rel="stylesheet" href="index-rhn54SW6.css" />
+  <script type="module" crossorigin src="index-fpEqEZfX.js"></script>
 
-    <script>
-      function copiarURL() {
-        navigator.clipboard.writeText(window.location.href)
-          .then(() => alert("Link copiado!"))
-          .catch(() => alert("Erro ao copiar o link."));
-      }
-    </script>
-  </body>
+  <style>
+    .copiar-btn {
+      background: #2e7d32;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      position: fixed;
+      bottom: 12px;
+      right: 12px;
+      cursor: pointer;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <div id="raiz">eu ia="raiz"</div>
+
+  <button class="copiar-btn" onclick="copiarURL()">Site Copiar</button>
+
+  <script>
+    function copiarURL() {
+      navigator.clipboard.writeText(window.location.href)
+        .then(() => alert("Link copiado!"))
+        .catch(() => alert("Erro ao copiar o link."));
+    }
+  </script>
+</body>
 </html>
