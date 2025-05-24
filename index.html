@@ -8,33 +8,45 @@
   <link rel="icon" type="image/svg+xml" href="vite.svg" />
   <link rel="stylesheet" href="index-rhn54SW6.css" />
   <script type="module" crossorigin src="index-fpEqEZfX.js"></script>
-
-  <style>
-    .copiar-btn {
-      background: #2e7d32;
-      color: white;
-      padding: 8px 12px;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      position: fixed;
-      bottom: 12px;
-      right: 12px;
-      cursor: pointer;
-      z-index: 999;
-    }
-  </style>
 </head>
 <body>
   <div id="raiz"></div>
 
-  <button class="copiar-btn" onclick="copiarURL()">Site Copiar</button>
+  <button class="copiar-btn" aria-label="Copiar link do site">
+    Copiar Link
+    <span class="feedback-mensagem"></span>
+  </button>
 
   <script>
-    function copiarURL() {
-      navigator.clipboard.writeText(window.location.href)
-        .then(() => alert("Link copiado!"))
-        .catch(() => alert("Erro ao copiar o link."));
+    document.querySelector('.copiar-btn').addEventListener('click', copiarURL);
+
+    async function copiarURL() {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        mostrarFeedback('Link copiado!');
+      } catch (err) {
+        try {
+          const input = document.createElement('input');
+          input.value = window.location.href;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand('copy');
+          document.body.removeChild(input);
+          mostrarFeedback('Link copiado!');
+        } catch (err) {
+          mostrarFeedback('Erro ao copiar', true);
+        }
+      }
+    }
+
+    function mostrarFeedback(mensagem, erro = false) {
+      const feedback = document.querySelector('.feedback-mensagem');
+      feedback.textContent = mensagem;
+      feedback.style.color = erro ? '#d32f2f' : '#2e7d32';
+      
+      setTimeout(() => {
+        feedback.textContent = '';
+      }, 2000);
     }
   </script>
 </body>
