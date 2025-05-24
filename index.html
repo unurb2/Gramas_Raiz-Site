@@ -1,72 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>gramas-raiz.app</title>
-
-  <link rel="icon" type="image/svg+xml" href="vite.svg" />
-  <link rel="stylesheet" href="index-rhn54SW6.css" />
-  
-  <!-- Adicione este estilo temporariamente para depuração -->
-  <style>
-    body {
-      background-color: white;
-    }
-    
-    .copiar-btn {
-      background: #2e7d32;
-      color: white;
-      padding: 8px 12px;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      position: fixed;
-      bottom: 12px;
-      right: 12px;
-      cursor: pointer;
-      z-index: 999;
-    }
-
-    #raiz {
-      min-height: 100vh;
-      border: 2px solid red; /* Para verificar se o container está visível */
-    }
-  </style>
+  <link rel="stylesheet" href="index-rhn54SW6.css">
 </head>
 <body>
   <div id="raiz">
-    <!-- Conteúdo temporário para teste -->
-    <h1 style="color: black">Conteúdo Principal</h1>
-    <p>Se você está vendo isso, o problema está no JavaScript</p>
+    <!-- Conteúdo de fallback -->
+    <h1>Carregando aplicação...</h1>
   </div>
 
-  <button class="copiar-btn" aria-label="Copiar link do site">
-    Copiar Link
-    <span class="feedback-mensagem"></span>
-  </button>
-
-  <!-- Mova a tag script para o final do body -->
-  <script type="module" crossorigin src="index-fpEqEZfX.js"></script>
-  
-  <script>
-    // Adicione este event listener para garantir que o DOM está carregado
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelector('.copiar-btn').addEventListener('click', copiarURL);
-      
-      // Verifique se o elemento raiz está presente
-      if (!document.getElementById('raiz')) {
-        console.error('Elemento raiz não encontrado!');
-      }
+  <script type="module">
+    // Adicione um log de teste
+    console.log('Script carregado!');
+    window.addEventListener('DOMContentLoaded', () => {
+      console.log('DOM totalmente carregado');
     });
-
-    async function copiarURL() {
-      // Mantenha a mesma implementação anterior
-    }
-
-    function mostrarFeedback(mensagem, erro = false) {
-      // Mantenha a mesma implementação anterior
-    }
   </script>
+  
+  <script type="module" src="index-fpEqEZfX.js"></script>
 </body>
 </html>
