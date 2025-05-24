@@ -1,53 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gramas-raiz.app</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Meta Tags Essenciais para SEO -->
+    <title>Gramas Raiz | Gramas Naturais e Serviços Ambientais em SP</title>
+    <meta name="description" content="Empresa especializada em gramas naturais, roçada, plantio de mudas e serviços agrícolas em São Paulo. Solicite seu orçamento via WhatsApp!">
+    <meta name="keywords" content="grama esmeralda, roçada SP, plantio de mudas, limpeza de terreno">
+    
+    <!-- Open Graph (Social Media) -->
+    <meta property="og:title" content="Gramas Raiz | Qualidade em Gramas e Serviços Ambientais">
+    <meta property="og:description" content="Soluções completas em gramas naturais e serviços agrícolas para São Paulo e região">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/images/og-image.jpg">
 
-  <link rel="icon" type="image/svg+xml" href="vite.svg" />
-  <link rel="stylesheet" href="index-rhn54SW6.css" />
-  <script type="module" crossorigin src="index-fpEqEZfX.js"></script>
-</head>
-<body>
-  <div id="raiz"></div>
+    <!-- Favicon e Web App Manifest -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <link rel="manifest" href="/manifest.json">
 
-  <button class="copiar-btn" aria-label="Copiar link do site">
-    Copiar Link
-    <span class="feedback-mensagem"></span>
-  </button>
+    <!-- Carregamento de Assets -->
+    <script type="module" crossorigin src="/assets/index-fpEqEZfX.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-rhn54Sw6.css">
+  </head>
+  <body>
+    <div id="root"></div>
 
-  <script>
-    document.querySelector('.copiar-btn').addEventListener('click', copiarURL);
-
-    async function copiarURL() {
-      try {
-        await navigator.clipboard.writeText(window.location.href);
-        mostrarFeedback('Link copiado!');
-      } catch (err) {
-        try {
-          const input = document.createElement('input');
-          input.value = window.location.href;
-          document.body.appendChild(input);
-          input.select();
-          document.execCommand('copy');
-          document.body.removeChild(input);
-          mostrarFeedback('Link copiado!');
-        } catch (err) {
-          mostrarFeedback('Erro ao copiar', true);
-        }
+    <!-- Schema Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Gramas Raiz",
+      "image": "/assets/images/logo.png",
+      "telephone": "+5511996011561",
+      "email": "contato@gramasraiz.com.br",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Paulista, 1000",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP"
       }
     }
-
-    function mostrarFeedback(mensagem, erro = false) {
-      const feedback = document.querySelector('.feedback-mensagem');
-      feedback.textContent = mensagem;
-      feedback.style.color = erro ? '#d32f2f' : '#2e7d32';
-      
-      setTimeout(() => {
-        feedback.textContent = '';
-      }, 2000);
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>
